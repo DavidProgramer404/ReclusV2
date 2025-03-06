@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row py-5">
+            <form id="contactForm" class="col-md-9 m-auto" method="post" action="sendmail.php" role="form">
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputname">Nombre:</label>
+                        <input type="text" class="form-control mt-1" id="name" name="name" placeholder="Ingrese nombre">
+                    </div>
+                    <div class="form-group col-md-6 mb-3">
+                        <label for="inputemail">Correo Electrónico:</label>
+                        <input type="email" class="form-control mt-1" id="email" name="email" placeholder="Ingrese su correo electrónico">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputsubject">Asunto:</label>
+                    <input type="text" class="form-control mt-1" id="subject" name="subject" placeholder="Asunto...">
+                </div>
+                <div class="mb-3">
+                    <label for="inputmessage">Mensaje:</label>
+                    <textarea class="form-control mt-1" id="message" name="message" placeholder="Ingrese su mensaje..." rows="8"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col text-end mt-2">
+                        <button type="submit" class="btn btn-success btn-lg px-3">Hablemos</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Evitar el envío tradicional del formulario
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        const data = {
+            name: name,
+            email: email,
+            subject: subject,
+            message: message
+        };
+
+        fetch('sendmail.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data); // Mostrar una alerta con el resultado
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    });
+    </script>
+</body>
+</html>

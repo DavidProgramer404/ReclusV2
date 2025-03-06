@@ -1,0 +1,125 @@
+/*
+Custom Css
+*/
+.logoHeader {
+    width: 100px;
+}
+
+/* .banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    
+    background: url('../img/img/volcan.jpg') no-repeat center center;
+    background-size: cover;
+    
+    background-position: 0 -470px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); 
+   
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
+} */
+
+/* banner sin fotos solo texto moderno */
+
+.img-fluid-carousel{
+    /* bordes */
+    border-radius: 20%;
+   
+    /* efecto rgb multicolor con movimientos*/
+    animation: cambio 5s infinite;
+    }
+    @keyframes cambio {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
+        }
+        .img-fluid-carousel:hover {
+            transform: scale(1.1); /* Efecto de zoom */
+            transition: transform 0.5s ease; /* Transición suave */
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: auto;
+        }
+    
+
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    container: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 50px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-bottom: 100px;
+    /* alargar */
+    padding-top: 100px;
+    /* fondo */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* bordes */
+    border-radius: 20%;
+}
+
+/* LOGO NAV */
+
+.logoHeader {
+    animation: move 2s infinite;
+}
+
+@keyframes move {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+.container-shop{
+    margin-top: 50px;
+
+}
+
+.logoAboutReclus{
+    /* imagen banner */
+    width: 100%;
+    height: auto;
+    /* movimiento*/
+    animation: move 2s infinite;
+    /* responsive movil */
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+    @keyframes move {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+
+
+}

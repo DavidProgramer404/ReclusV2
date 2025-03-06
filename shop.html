@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RECLUS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/img/about-hero.svg">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none"
+                        href="mailto:info@company.com">contacto@reclus.cl</a>
+
+                </div>
+                <div>
+                    <a class="text-light" href="https://www.instagram.com/recluschile/" target="_blank"><i
+                            class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                <img src="./assets/img/img//LogoReclus.png" alt="" class="logoHeader">
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Compras</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                        data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal"
+                        data-bs-target="#cartModal">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">
+                            <span id="cartBadge">0</span>
+                        </span>
+                    </a>
+
+                    
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+        <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItemsContainer" class="mb-4">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+                    <div id="totalPrice" class="text-muted"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="proceedToPayment()">Proceder al pago</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addToCartModalLabel">Producto agregado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="addToCartMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Start Content -->
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-lg-3">
+                <h1 class="h2 pb-4">Categoría</h1>
+                <ul class="list-unstyled templatemo-accordion">
+                    <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            Género
+                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul class="collapse show list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="shop.html">Hombre</a></li>
+                            <li><a class="text-decoration-none" href="shop.html">Mujer</a></li>
+                        </ul>
+                    </li>
+                    <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            Políticas
+                            <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul class="collapse show list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="policies.html">Compras y Envío</a></li>
+                            <li><a class="text-decoration-none" href="policies_rembol.html">Cambios y Devoluciones</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-inline shop-top-menu pb-3 pt-1">
+                            <li class="list-inline-item">
+                                <a class="h3 text-dark text-decoration-none mr-3" href="#">Todo</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="h3 text-dark text-decoration-none mr-3" href="#">Hombres</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="h3 text-dark text-decoration-none" href="#">Mujeres</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 pb-4">
+                        <div class="d-flex">
+                            <select class="form-control">
+                                <option>Featured</option>
+                                <option>A to Z</option>
+                                <option>Item</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Producto 1 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Bmx1.jpeg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <!-- <a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Old Skool BMX Rojo</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 40.5 - 41 - 42 - 46</li>
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$70.000</p>
+                                <button class="btn btn-success text-white mt-2 btn-block"
+                                    onclick="addToCart('Old Skool BMX Rojo', 70000, 'assets/img/img/Bmx1.jpeg')">
+                                    Añadir al carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 2 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/OldskoolBMX1.jpg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <!-- <a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Old Skool BMX Azul</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 39 - 40.5 - 41 - 43</li>
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$70.000</p>
+                                <button class="btn btn-success text-white mt-2 btn-block"
+                                    onclick="addToCart('Old Skool BMX Azul', 70000, 'assets/img/img/OldskoolBMX1.jpg')">
+                                    Añadir al carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 3 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Nikesb1.jpeg">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <!-- <a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Nike SB</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 41 - 42 - 42.5 - 43</li>
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$70.000</p>
+                                <button class="btn btn-success text-white mt-2 btn-block"
+                                    onclick="addToCart('Nike SB', 70000, 'assets/img/img/Nikesb1.jpeg')">
+                                    Añadir al carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 4 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Nikeairmax.jpg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Nike Air Max Plus </a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 42 - 42.5 - 44</li>
+                                   
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$130.000</p>
+                                <button class="btn btn-success text-white mt-5 btn-block"
+                                    onclick="addToCart('Nike Air Max Plus', 130000, 'assets/img/img/Nikeairmax.jpg')">
+                                    Añadir al carrito
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 5 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Bmxnavy.jpeg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Sk8 BMX Navy</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 40.5 - 41 - 42 - 42.5 - 43</li>
+                                    
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center"> 
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$80.000</p>
+                                <button class="btn btn-success text-white mt-2 btn-block"
+                                    onclick="addToCart('Sk8 BMX Navy', 80000, 'assets/img/img/Bmxnavy.jpeg')">Añadir al carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 6 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Adidasty.jpg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Adidas tyshawn </a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 44.5</li>
+                                    
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$70.000</p>
+                                <button class="btn btn-success text-white mt-5 btn-block "
+                                    onclick="addToCart('Adidas Tyshawn', 70000, 'assets/img/img/Adidasty.jpg')">Añadir al carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 7 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Chukkalow.jpg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Chukka Low </a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 37 - 38 - 40.5 - 41 - 43</li>
+                                    
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$70.000</p>
+                                <button class="btn btn-success text-white mt-2 btn-block"
+                                    onclick="addToCart('Chukka Low', 70000, 'assets/img/img/Chukkalow.jpg')">Añadir al carrito
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 8 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/AdidasBusi.jpg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Adidas Busenitz</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 40 - 42</li>
+                                    
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0 p-1">$70.000</p>
+                                <button class="btn btn-success text-white mt-4 btn-block"
+                                    onclick="addToCart('Adidas Busenitz', 70000, 'assets/img/img/AdidasBusi.jpg')">Añadir al carrito
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 9 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Knu.jpeg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Knu Skool Navy</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 40 - 42 - 43</li>
+                                    
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0 p-1">$85.000</p>
+                                <button class="btn btn-success text-white mt-4 btn-block"
+                                    onclick="addToCart('Knu Skool Navy', 85000, 'assets/img/img/Knu.jpeg')">Añadir al carrito
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 10 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Kron.jpeg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Nike Chron Black Gum</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 42.5</li>
+                                   
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$75.000</p>
+                                <button class="btn btn-success text-white mt-2 btn-block"
+                                    onclick="addToCart('Nike Chron Black Gum', 75000, 'assets/img/img/Kron.jpeg')">Añadir al carrito
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 11 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/Cronred.jpeg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Nike Chron Red</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 42</li>
+                                    
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0 p-1">$70.000</p>
+                                <button class="btn btn-success text-white mt-4 btn-block"
+                                    onclick="addToCart('Nike Chron Red', 70000, 'assets/img/img/Cronred.jpeg')">Añadir al carrito
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Producto 12 -->
+                    <div class="col-md-4 d-flex align-items-stretch">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="assets/img/img/knulbl.jpeg">
+                                <div
+                                    class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i
+                                                    class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="shop-single.html" class="h3 text-decoration-none">Knul Skool Black White</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>Tallas: 40 - 41 - 42</li>
+                                   
+                                </ul>
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+                                <p class="text-center mb-0">$85.000</p>
+                                <button class="btn btn-success text-white mt-2 btn-block"
+                                    onclick="addToCart('Knul Skool Black White', 85000, 'assets/img/img/knulbl.jpeg')">Añadir al carrito
+                                    </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+        <!-- Start Brands -->
+        <section class="bg-light py-5">
+            <div class="container my-4">
+                <div class="row text-center py-3">
+                    <div class="col-lg-6 m-auto">
+                        <h1 class="h1">Nuestras Marcas</h1>
+                        <p>
+                            En Reclus, ofrecemos una amplia gama de productos de alta calidad para tu estilo de vida.
+                            Descubre nuestra colección de poleras, mochilas resistentes y funcionales, y zapatillas que
+                            combinan estilo y confort. Además, contamos con una variedad de accesorios para complementar
+                            tu look.
+                        </p>
+                    </div>
+                    <div class="col-lg-9 m-auto tempaltemo-carousel">
+                        <div class="row d-flex flex-row">
+                            <!--Controls-->
+                            <div class="col-1 align-self-center">
+                                <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
+                                    <i class="text-light fas fa-chevron-left"></i>
+                                </a>
+                            </div>
+                            <!--End Controls-->
+
+                            <!--Carousel Wrapper-->
+                            <div class="col">
+                                <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example"
+                                    data-bs-ride="carousel">
+                                    <!--Slides-->
+                                    <div class="carousel-inner product-links-wap" role="listbox">
+
+                                        <!--First slide-->
+                                        <div class="carousel-item active">
+                                            <div class="row">
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End First slide-->
+
+                                        <!--Second slide-->
+                                        <div class="carousel-item">
+                                            <div class="row">
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Second slide-->
+
+                                        <!--Third slide-->
+                                        <div class="carousel-item">
+                                            <div class="row">
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_01.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_02.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_03.png" alt="Brand Logo"></a>
+                                                </div>
+                                                <div class="col-3 p-md-5">
+                                                    <a href="#"><img class="img-fluid brand-img"
+                                                            src="assets/img/brand_04.png" alt="Brand Logo"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Third slide-->
+
+                                    </div>
+                                    <!--End Slides-->
+                                </div>
+                            </div>
+                            <!--End Carousel Wrapper-->
+
+                            <!--Controls-->
+                            <div class="col-1 align-self-center">
+                                <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
+                                    <i class="text-light fas fa-chevron-right"></i>
+                                </a>
+                            </div>
+                            <!--End Controls-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End Brands-->
+
+
+        <!-- Start Footer -->
+        <footer class="bg-dark" id="tempaltemo_footer">
+            <div class="container container-shop">
+                <div class="row">
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-success border-bottom pb-3 border-light logo">Reclus</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li>
+                                <i class="fas fa-map-marker-alt fa-fw"></i>
+                                Nueva de Lyon 45 edificio dos caracoles, local 9B Providencia, Santiago, Chile.
+                            </li>
+
+                            <li>
+                                <i class="fa fa-envelope fa-fw"></i>
+                                <a class="text-decoration-none" href="mailto:info@reclus.com">contacto@reclus.cl</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Productos</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="shop.html">Zapatillas Hombre</a></li>
+                            <li><a class="text-decoration-none" href="shop.html">Zapatillas Mujer</a></li>
+                            <li><a class="text-decoration-none" href="shop.html">Poleras</a></li>
+                            <li><a class="text-decoration-none" href="shop.html">Gorros</a></li>
+                            <li><a class="text-decoration-none" href="shop.html">Mochilas</a></li>
+                            <li><a class="text-decoration-none" href="shop.html">Zapatillas Deportivas</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light">Más Información</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li><a class="text-decoration-none" href="index.html">Inicio</a></li>
+                            <li><a class="text-decoration-none" href="about.html">Nosotros</a></li>
+                            <li><a class="text-decoration-none" href="contact.html">Ubicación</a></li>
+                            <li><a class="text-decoration-none" href="contact.html">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="row text-light mb-4">
+                    <div class="col-12 mb-3">
+                        <div class="w-100 my-3 border-top border-light"></div>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <ul class="list-inline text-left footer-icons">
+                            <li class="list-inline-item border border-light rounded-circle text-center">
+                                <a class="text-light text-decoration-none" target="_blank"
+                                    href="https://www.instagram.com/recluschile/"><i
+                                        class="fab fa-instagram fa-lg fa-fw"></i></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <label class="sr-only" for="subscribeEmail">Email address</label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control bg-dark border-light" id="subscribeEmail"
+                                placeholder="Ingresa Correo">
+                            <div class="input-group-text btn-success text-light">Subscríbete</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="text-left text-light">
+                                Copyright &copy; 2025 Reclus
+                                | Diseñado por<a rel="sponsored" href="https://appmatrix.CL"
+                                    target="_blank">AppMatrix</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+        <!-- End Footer -->
+
+        <!-- Start Script -->
+        <script src="assets/js/jquery-1.11.0.min.js"></script>
+        <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/templatemo.js"></script>
+        <script src="assets/js/custom.js"></script>
+        <script src="assets/js/carrito.js"></script>
+        <!-- End Script -->
+</body>
+
+</html>
