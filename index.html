@@ -17,6 +17,10 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
+    <!-- boostrap 5.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -118,79 +122,23 @@
     </div>
 
     <!-- Inicio del Banner Hero -->
-    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
-            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
-        </ol>
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-4 order-lg-last">
-                            <img class="img-fluid-carousel" src="./assets/img/img/zapat1.png" alt="Zapatillas" loading="lazy">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-black"><b>Zapatillas</b></h1>
-                                <h3 class="h2">Descubre nuestra amplia selección de zapatillas. </h3>
-                                <p>
-                                    Perfectas para el uso diario, estas zapatillas combinan estilo y comodidad para
-                                    lucir genial en cualquier situación informal.
-                                </p>
-                                <p>
-                                    Diseñadas para ofrecer un soporte óptimo y una amortiguación superior durante tus
-                                    entrenamientos y actividades deportivas.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="assets/img/carrusel1.jpg" class="d-block w-100 img-fluid-carousel" alt="...">
             </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-4 order-lg-last">
-                            <img class="img-fluid-carousel" src="./assets/img/img/Slider1.jpg" alt="Modelos de zapatillas" loading="lazy">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Modelos de zapatillas:</h1>
-                                <h3 class="h2">Vans, Nike, Nike SB, Adidas</h3>
-                                <p>Modelos con estilo y comodidad.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-4 order-lg-last">
-                            <img class="img-fluid-carousel" src="./assets/img/img/Slider2.jpg" alt="Modelos de zapatillas" loading="lazy">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Modelos de zapatillas:</h1>
-                                <h3 class="h2">Vans</h3>
-                                <p>Vans Ultrarange: Una línea de zapatillas diseñadas para actividades deportivas y uso
-                                    diario, con tecnología avanzada para mayor comodidad y rendimiento.</p>
-                                <p>Slip-On: Una zapatilla sin cordones, conocida por su comodidad y estilo casual.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="assets/img/Carrusel2.jpg" class="d-block w-100 img-fluid-carousel" alt="...">
             </div>
         </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel"
-            role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
-        </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel"
-            role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
-        </a>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
     <!-- Cierre del Banner Hero -->
 
